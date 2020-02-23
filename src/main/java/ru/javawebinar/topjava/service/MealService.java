@@ -1,5 +1,8 @@
 package ru.javawebinar.topjava.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.lang.Nullable;
+import org.springframework.stereotype.Service;
 import ru.javawebinar.topjava.model.Meal;
 import ru.javawebinar.topjava.repository.MealRepository;
 import ru.javawebinar.topjava.to.MealTo;
@@ -11,9 +14,12 @@ import static ru.javawebinar.topjava.util.MealsUtil.DEFAULT_CALORIES_PER_DAY;
 import static ru.javawebinar.topjava.util.MealsUtil.getTos;
 import static ru.javawebinar.topjava.util.ValidationUtil.checkNotFoundWithId;
 
+@Service
 public class MealService {
 
+
     private final MealRepository repository;
+
 
     public MealService(MealRepository repository) {
         this.repository = repository;
@@ -35,8 +41,8 @@ public class MealService {
         return getTos(repository.getAll(userId), DEFAULT_CALORIES_PER_DAY);
     }
 
-    public List<MealTo> getAllFromTo(LocalDateTime from, LocalDateTime to, Integer userId) {
-        return getTos(repository.getAllfromTo(from, to, userId), DEFAULT_CALORIES_PER_DAY);
+    public List<MealTo> getAllFromTo(@Nullable LocalDateTime from, @Nullable LocalDateTime to, Integer userId) {
+        return getTos(repository.getAllFromTo(from, to, userId), DEFAULT_CALORIES_PER_DAY);
     }
 
     public void update(Meal meal, Integer userId) {

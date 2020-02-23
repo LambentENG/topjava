@@ -21,13 +21,19 @@ import static ru.javawebinar.topjava.web.SecurityUtil.authUserId;
 
 public class MealServlet extends HttpServlet {
     private static final Logger log = LoggerFactory.getLogger(MealServlet.class);
-
     private MealRepository repository;
+
+
 
     @Override
     public void init(ServletConfig config) throws ServletException {
         super.init(config);
         repository = new InMemoryMealRepository();
+    }
+
+    @Override
+    public void destroy() {
+        super.destroy();
     }
 
     @Override

@@ -3,7 +3,6 @@ package ru.javawebinar.topjava.to;
 import ru.javawebinar.topjava.model.Role;
 import ru.javawebinar.topjava.model.User;
 
-import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.Set;
 
