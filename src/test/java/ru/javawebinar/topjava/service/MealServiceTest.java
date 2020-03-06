@@ -50,6 +50,7 @@ public class MealServiceTest {
 
     @Test
     public void create() throws Exception {
+
         Meal newMeal = getCreated();
         Meal created = service.create(newMeal, USER_ID);
         Integer newId = created.getId();
