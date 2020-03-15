@@ -3,6 +3,7 @@ package ru.javawebinar.topjava.repository.datajpa;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 import ru.javawebinar.topjava.model.User;
 import ru.javawebinar.topjava.repository.UserRepository;
 
@@ -14,6 +15,7 @@ public class DataJpaUserRepository implements UserRepository {
 
     private CrudUserRepository crudRepository;
 
+    @Autowired
     public DataJpaUserRepository(CrudUserRepository crudRepository) {
         this.crudRepository = crudRepository;
     }
