@@ -38,8 +38,10 @@ public class MealService {
         return repository.getAll(userId);
     }
 
+
     public void update(Meal meal, int userId) {
         Assert.notNull(meal, "meal must not be null");
+        Assert.notNull(meal.getId());
         checkNotFoundWithId(repository.save(meal, userId), meal.getId());
     }
 

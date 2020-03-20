@@ -57,6 +57,7 @@ public class User extends AbstractNamedEntity {
     @OrderBy("dateTime DESC")
     private List<Meal> meals;
 
+
     public List<Meal> getMeals() {
         return meals;
     }
